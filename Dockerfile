@@ -13,5 +13,6 @@ RUN apt update -y
 RUN apt install fzf cups printer-driver-escpr -y
 
 COPY entrypoint.sh /
+RUN chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
