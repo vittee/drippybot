@@ -1,12 +1,18 @@
 #!/bin/bash
 
+start_cupsd() {
+    if ! pgrep -x "cupsd" > /dev/null; then
+        cupsd
+    fi
+}
+
 err() {
     echo -e >&2 "$@"
     exit 1
 }
 
 model() {
-    cupsd
+    start_cupsd
     lpinfo -m | fzf --tac --layout=reverse --with-nth 2.. --bind 'enter:become(echo {1})'
 }
 
@@ -19,7 +25,7 @@ print() {
         err "No printer MODEL is specified\nTry running with \"model\" argument to select a supported model"
     fi
 
-    cupsd
+    start_cupsd
 
     # Add the printer
     lpadmin -p default -v "$URI" -m "$MODEL"
