@@ -34,6 +34,8 @@ print() {
     sleep ${WAIT:-5}
 }
 
+ulimit -n 65536
+
 case "$1" in
     model)
         model
