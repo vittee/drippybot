@@ -78,9 +78,10 @@ Examples:
 
 See [cron](https://pkg.go.dev/github.com/robfig/cron) documentation for more details
 
+## 🏃🏼‍♂️ Running
+
 You can run this compose file using one of these methods:
 
-## 🏃🏼‍♂️ Running
 #### CLI
 ```
 docker compose up -d
